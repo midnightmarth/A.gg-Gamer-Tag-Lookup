@@ -1,0 +1,74 @@
+body{
+  background-image: linear-gradient(to left, #7e57c2, #2c0e7a);
+}
+
+
+.characterPortrait{
+  width: 35px;
+  border-radius: 50%;
+}
+
+#gamerProfile{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 25%;
+  margin: auto;
+  padding-bottom: 50px;
+}
+
+#knowForPlaying{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#title{
+  text-align: center;
+}
+
+#userInput{
+  display: flex;
+  justify-content: center;
+}
+
+#playerDisplay{
+  display: flex;
+  padding-top: 25px;
+}
+
+#gamerAvatar{
+  display: flex;
+  margin: auto;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.603);
+
+  width: 50%;
+}
+
+#submitButton{
+  display: flex;
+  margin-top: 5px;
+  width: 175px;
+  border: solid #2c0e7a 0.5px;
+}
+
+#content{
+  display: flex;
+  flex-direction: column;
+}
+
+#gamesPlayerPlays{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.gameBoxImg{
+  width: 50%;
+}
+
+#playerCard{
+  background: rgba(255, 255, 255, 0.205);
+
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.603);  
+}
