@@ -41,8 +41,18 @@ body{
   display: flex;
   margin: auto;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.603);
-
   width: 50%;
+}
+
+#tourneyAvatar{
+  display: flex;
+  width: 15%;
+
+}
+
+#tourneyName {
+  text-align: center;
+  margin: auto;
 }
 
 #submitButton{
@@ -69,6 +79,13 @@ body{
 
 #playerCard{
   background: rgba(255, 255, 255, 0.205);
-
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.603);  
+
+}
+
+#inputHolder{
+  padding: 10px 50px 10px 50px;
+  background: rgb(61, 90, 255);  
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.603);  
+
 }

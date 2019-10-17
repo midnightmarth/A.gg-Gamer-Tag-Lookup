@@ -4,7 +4,7 @@ import { TextField, Button } from "@material-ui/core"
 
 function inputHolder(props) {
     return(
-        <div>
+        <div id= 'inputHolder'>
             <TextField
             onChange={(value) => {props.setGamerTag(value.target.value)}}
             onKeyPress={(event) => {

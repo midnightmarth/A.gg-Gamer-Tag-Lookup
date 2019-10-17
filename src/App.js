@@ -22,7 +22,8 @@ function App() {
   const [athleteData, setAthleteData] = useState({});
   const [lastFive, setLastFive] = useState([]);
   const [open, setOpen] = React.useState(false);
-  const [transition, setTransition] = React.useState(undefined);
+  
+  let errorMessage = 'An error has occurred when contacting the server'
 
   function searchName(){
     axios.get('http://localhost:3030/users',
@@ -35,22 +36,12 @@ function App() {
       console.log("data:",data.data)
       setAthleteData(data.data.athleteData.data[0]);
       setLastFive(data.data.lastFive.data);
-      handleError(transitionUp);
     })
     .catch(err => {
-      handleError(transitionUp);
       console.log("error: ", err)
+      setOpen(true)
     })
   }
-
-  const handleError = Transition => () => {
-    setTransition(() => Transition);
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <div className="App">
@@ -69,12 +60,12 @@ function App() {
       </div>
       <Snackbar
         open={open}
-        onClose={handleClose}
-        TransitionComponent={transition}
+        onClose={() => {setOpen(false)}}
+        TransitionComponent={transitionUp}
         ContentProps={{
           'aria-describedby': 'message-id',
         }}
-        message={<span id="message-id">An Error Has Occurred</span>}
+        message={<span id="message-id">{errorMessage}</span>}
       />
     </div>
   );
