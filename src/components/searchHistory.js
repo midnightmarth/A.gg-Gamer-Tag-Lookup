@@ -1,7 +1,7 @@
 import React from "react"
 
 import { Card, ListItemIcon } from "@material-ui/core"
-import { Avatar, Button, List, ListItem, ListItemSecondaryAction, Typography, Divider } from "@material-ui/core";
+import { Avatar, Button, List, ListItem, ListItemSecondaryAction, Typography } from "@material-ui/core";
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 import {MuiThemeProvider} from 'material-ui/styles'
