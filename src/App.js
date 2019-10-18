@@ -45,14 +45,14 @@ function App() {
     }
     if(localStorage.getItem(gT)){
       setCacheHit(true)
-      console.log(JSON.parse(localStorage.getItem(gT)).athleteData)
+      // console.log(JSON.parse(localStorage.getItem(gT)).athleteData)
       const data = JSON.parse(localStorage.getItem(gT)).athleteData
       const lastFive = JSON.parse(localStorage.getItem(gT)).lastFive
       setAthleteData(data)
       setLastFive(lastFive)
     } else {
       setCacheHit(false);
-      axios.get('http://localhost:3030/users',
+      axios.get((process.env.server_address || 'http://localhost:3030/') +'users',
         {
         params: {
           user: gamerTag
@@ -90,8 +90,8 @@ function App() {
           <InputHolder searchName={searchName} setGamerTag={setGamerTag}/>
           <FormGroup>
             <FormControlLabel control={
-              <Checkbox checked={cacheHit} />
-            } label='Cache Hit Indicator'/>
+              <Checkbox color='primary' checked={cacheHit} id='checkBoxIndicator'/>
+            } label={<p id='checkBoxIndicator'> Cache Hit Indicator</p>}/>
           </FormGroup>
         </div>
       </div>

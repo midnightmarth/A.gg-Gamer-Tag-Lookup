@@ -104,7 +104,8 @@ h2{
 #inputHolder{
   padding: 10px 50px 10px 50px;
   background: rgba(255, 255, 255, 0.205);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.603);  
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.603); 
+  color: white; 
 }
 
 #searchHistoryCard{
@@ -114,4 +115,7 @@ h2{
 #searchHistory{
   position: absolute;
   padding-left: 4%;
+}
+#checkBoxIndicator{
+  color: white;
 }
