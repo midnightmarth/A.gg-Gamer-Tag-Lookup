@@ -1,17 +1,17 @@
 import React from "react"
-import {ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Table, TableCell, TableBody, TableHead, TableRow} from '@material-ui/core'
+import {ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Table, TableCell, TableBody, TableHead, TableRow, Avatar} from '@material-ui/core'
 function gamerTagDisplay(props) {
 
     return(
         <div id='gamerProfile'>
             {props.athleteData.gamerTag ?
                 <div id='playerCard'>
-                    {props.athleteData.avatar ? <img id="gamerAvatar" src={props.athleteData.avatar} alt="Avatar"/> : ""}
-                    <br/>
+                    {props.athleteData.avatar ? <Avatar id="gamerAvatar" src={props.athleteData.avatar} alt="Avatar"/> : 
+                    <Avatar id="gamerAvatar">{props.athleteData.gamerTag[0]}</Avatar>}
                 <div id='knowForPlaying'>
                     {props.athleteData.autoCharacters.map(i => {
                         return (
-                            <img className='characterPortrait' src={i.thumbnail} alt={i.name} key={i.smashggId}/>
+                            <Avatar className='characterPortrait' src={i.thumbnail} alt={i.name} key={i.smashggId}/>
                        )
                     })}
                 </div>
@@ -23,46 +23,46 @@ function gamerTagDisplay(props) {
                 <br/>
                 {props.athleteData.aggScoreBreakdown ?
                 <div id='aggScore'>
-                <ExpansionPanel>
-                    <ExpansionPanelSummary>Agg Score: {props.athleteData.aggScore}</ExpansionPanelSummary>
-                    <ExpansionPanelDetails>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell>Type (Platform)</TableCell>
-                                    <TableCell>Score</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                <TableRow>
-                                    <TableCell>Placing</TableCell>
-                                    <TableCell>{props.athleteData.aggScoreBreakdown.placing}</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>Twitch</TableCell>
-                                    <TableCell>{props.athleteData.aggScoreBreakdown.twitch}</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>Youtube</TableCell>
-                                    <TableCell>{props.athleteData.aggScoreBreakdown.youtube}</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>Twitter</TableCell>
-                                    <TableCell>{props.athleteData.aggScoreBreakdown.twitter}</TableCell>
-                                </TableRow>
-                            </TableBody>
-                        </Table>
-                    </ExpansionPanelDetails>
-                 </ExpansionPanel> 
+                    <ExpansionPanel>
+                        <ExpansionPanelSummary>Agg Score: {props.athleteData.aggScore}</ExpansionPanelSummary>
+                        <ExpansionPanelDetails>
+                            <Table>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>Type (Platform)</TableCell>
+                                        <TableCell>Score</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    <TableRow>
+                                        <TableCell>Placing</TableCell>
+                                        <TableCell>{props.athleteData.aggScoreBreakdown.placing}</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell>Twitch</TableCell>
+                                        <TableCell>{props.athleteData.aggScoreBreakdown.twitch}</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell>Youtube</TableCell>
+                                        <TableCell>{props.athleteData.aggScoreBreakdown.youtube}</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell>Twitter</TableCell>
+                                        <TableCell>{props.athleteData.aggScoreBreakdown.twitter}</TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                        </ExpansionPanelDetails>
+                    </ExpansionPanel> 
                 </div>
-                 : <ExpansionPanel>Does not have A.gg Score</ExpansionPanel>}
+                 : <ExpansionPanel><ExpansionPanelSummary>Does not have A.gg Score</ExpansionPanelSummary></ExpansionPanel>}
                 <ExpansionPanel>
                     <ExpansionPanelSummary>Games I'm Known For Playing</ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                         <div id='gamesPlayerPlays'>
                             {props.athleteData.gamesCompetitorGames.map(i => {
                                 return(
-                                    <div className='individualGames'>
+                                    <div key={i.id} className='individualGames'>
                                     <p>{i.name}</p>
                                     <img className='gameBoxImg' src={i.box} alt={i.name}/>
                                 </div>)
@@ -76,7 +76,7 @@ function gamerTagDisplay(props) {
                         <div id='lastFive'>
                         {props.lastFive.map(i => {
                             return(
-                                <ExpansionPanel>
+                                <ExpansionPanel key={i.id}>
                                     <ExpansionPanelSummary>
                                         <img id='tourneyAvatar' src={i.event.avatar} />
                                         <p id='tourneyName'>{i.event.tournamentName}</p>
@@ -93,11 +93,13 @@ function gamerTagDisplay(props) {
                                                 </TableRow>
                                             </TableHead>
                                             <TableBody>
-                                                <TableCell>{i.event.name}</TableCell>
-                                                <TableCell>{i.game.name}</TableCell>
-                                                <TableCell>{i.event.location.city}, {i.event.location.state}</TableCell>
-                                                <TableCell>{new Date(i.event.start).toUTCString()} - {new Date(i.event.end).toUTCString()}</TableCell>
-                                                <TableCell>{i.place ? i.place : "Not concluded yet."}</TableCell>
+                                                <TableRow>
+                                                    <TableCell>{i.event.name}</TableCell>
+                                                    <TableCell>{i.game.name}</TableCell>
+                                                    <TableCell>{i.event.location.city}, {i.event.location.state}</TableCell>
+                                                    <TableCell>{new Date(i.event.start).toUTCString()} - {new Date(i.event.end).toUTCString()}</TableCell>
+                                                    <TableCell>{i.place ? i.place : "Not concluded yet."}</TableCell>
+                                                </TableRow>
                                             </TableBody>
                                         </Table>
                                     </ExpansionPanelDetails>

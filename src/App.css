@@ -1,14 +1,31 @@
 body{
   background-image: linear-gradient(to left, #7e57c2, #2c0e7a);
+  font-family: Roboto;
 }
 
+h1{
+  font-family: Comfortaa
+}
+
+h2{
+  font-family: Comfortaa
+}
 
 .characterPortrait{
   width: 35px;
   border-radius: 50%;
 }
 
+.historyDeleteButton{
+  display: flex;
+}
+
+#playerAvatarHistory{
+  width: 65%;
+}
+
 #gamerProfile{
+
   display: flex;
   text-align: center;
   justify-content: center;
@@ -19,17 +36,23 @@ body{
 
 #knowForPlaying{
   display: flex;
+  padding-top: 10px;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
 #title{
+  color: white;
   text-align: center;
 }
 
-#userInput{
+#content{
   display: flex;
   justify-content: center;
+}
+
+#userInput{
+  width: 15%;
 }
 
 #playerDisplay{
@@ -40,14 +63,15 @@ body{
 #gamerAvatar{
   display: flex;
   margin: auto;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.603);
-  width: 50%;
+  margin-top: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.603);  
+  width: 350px;
+  height: 350px;
 }
 
 #tourneyAvatar{
   display: flex;
   width: 15%;
-
 }
 
 #tourneyName {
@@ -60,11 +84,6 @@ body{
   margin-top: 5px;
   width: 175px;
   border: solid #2c0e7a 0.5px;
-}
-
-#content{
-  display: flex;
-  flex-direction: column;
 }
 
 #gamesPlayerPlays{
@@ -80,12 +99,19 @@ body{
 #playerCard{
   background: rgba(255, 255, 255, 0.205);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.603);  
-
 }
 
 #inputHolder{
   padding: 10px 50px 10px 50px;
-  background: rgb(61, 90, 255);  
+  background: rgba(255, 255, 255, 0.205);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.603);  
+}
 
+#searchHistoryCard{
+  display: flex;
+  width: 25rem;
+}
+#searchHistory{
+  position: absolute;
+  padding-left: 4%;
 }
