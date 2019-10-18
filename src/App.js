@@ -52,7 +52,7 @@ function App() {
       setLastFive(lastFive)
     } else {
       setCacheHit(false);
-      axios.get((process.env.server_address || 'http://localhost:3030/') +'users',
+      axios.get('https://agg-gamer-tag-lookup-server.herokuapp.com/users',
         {
         params: {
           user: gamerTag
