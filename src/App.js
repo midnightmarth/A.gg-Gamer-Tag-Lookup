@@ -23,7 +23,6 @@ function allStorage() {
   while ( i-- ) {
       values.push( JSON.parse(localStorage.getItem(keys[i])));
   }
-  console.log("All localStorage",values)
   return values;
 }
 
@@ -59,14 +58,14 @@ function App() {
         }
       })
       .then(data => {
-        console.log("data:",data.data)
+        // console.log("data:",data.data)
         localStorage.setItem(data.data.athleteData.data[0].gamerTag, JSON.stringify({athleteData: data.data.athleteData.data[0], lastFive: data.data.lastFive.data}))
         setAthleteData(data.data.athleteData.data[0]);
         setHistory([...history, {athleteData: data.data.athleteData.data[0], lastFive: data.data.lastFive.data}]);
         setLastFive(data.data.lastFive.data);
       })
       .catch(err => {
-        console.log("error: ", err)
+        console.error("error: ", err)
         setOpen(true)
       })
     }

@@ -82,7 +82,7 @@ h2{
 #submitButton{
   display: flex;
   margin-top: 5px;
-  width: 175px;
+  width: 100%;
   border: solid #2c0e7a 0.5px;
 }
 

@@ -17,7 +17,7 @@ function searchHistory(props) {
                     {props.history.map(i => {
                     return(
                         <ListItem className='historyItem' key={i.athleteData.id} button onClick={() => {
-                            console.log('Searching: ',i.athleteData.gamerTag)
+                            // console.log('Searching: ',i.athleteData.gamerTag)
                             props.searchName(i.athleteData.gamerTag)
                         }}> 
                             <ListItemIcon>
@@ -28,7 +28,7 @@ function searchHistory(props) {
                             </Typography>
                             <ListItemSecondaryAction className='historyDeleteButton'>
                                 <Button onClick={() => {
-                                    console.log("Deleting: ",i.athleteData.gamerTag)
+                                    // console.log("Deleting: ",i.athleteData.gamerTag)
                                     props.deleteHistory(i.athleteData.gamerTag)
                                     
                                     }}><DeleteOutlinedIcon />
